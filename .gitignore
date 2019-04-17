@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Generated files
+*.log
+.DS_Store
+.idea
+fhir/fixtures/data/shr
+fhir/fixtures/data/uscore
+venv
+.venv
+
+# Local Development Certs
+cert.pem
+key.pem
+
+# ENV Files
+.local-secrets/auth.secrets
+
+# private logstash parsing files
+logstash/pipeline/*.private.conf
