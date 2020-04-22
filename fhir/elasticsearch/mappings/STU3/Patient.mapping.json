@@ -40,6 +40,45 @@
         "store": false,
         "type": "date"
       },
+      "communication": {
+        "type": "nested",
+        "properties": {
+          "language": {
+            "properties": {
+              "coding": {
+                "properties": {
+                  "code": {
+                    "index": true,
+                    "store": false,
+                    "type": "keyword"
+                  },
+                  "display": {
+                    "index": true,
+                    "store": false,
+                    "type": "keyword"
+                  },
+                  "system": {
+                    "index": true,
+                    "store": false,
+                    "type": "keyword"
+                  }
+                },
+                "type": "nested"
+              },
+              "text": {
+                "analyzer": "standard",
+                "index": true,
+                "store": false,
+                "type": "text"
+              }
+            }
+          },
+          "preferred": {
+            "store": false,
+            "type": "boolean"
+          }
+        }
+      },
       "deceasedDateTime": {
         "format": "date_time_no_millis||date_optional_time",
         "store": false,
@@ -108,6 +147,36 @@
           }
         }
       },
+      "maritalStatus": {
+         "properties": {
+          "coding": {
+            "properties": {
+              "code": {
+                "index": true,
+                "store": false,
+                "type": "keyword"
+              },
+              "display": {
+                "index": true,
+                "store": false,
+                "type": "keyword"
+              },
+              "system": {
+                "index": true,
+                "store": false,
+                "type": "keyword"
+              }
+            },
+            "type": "nested"
+          },
+          "text": {
+            "analyzer": "standard",
+            "index": true,
+            "store": false,
+            "type": "text"
+          }
+        }
+      },
       "meta": {
         "properties": {
           "lastUpdated": {
@@ -126,6 +195,14 @@
             "type": "keyword"
           }
         }
+      },
+      "multipleBirthBoolean": {
+        "store": false,
+        "type": "boolean"
+      },
+      "multipleBirthInteger": {
+        "store": false,
+        "type": "integer"
       },
       "name": {
         "properties": {
