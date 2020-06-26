@@ -173,6 +173,9 @@ let create = (resource, indexName, ResourceClass, MetaClass, resolve, reject) =>
 		'versionId': 1
 	});
 
+	let str_resource = JSON.stringify(_resource);
+	logger.info(`${indexName} creating >>> ${str_resource}`);
+
 	// Index resource
 	esClient.index({
 		index: indexName,

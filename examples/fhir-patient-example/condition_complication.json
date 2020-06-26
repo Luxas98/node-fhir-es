@@ -1,0 +1,59 @@
+{
+    "_comment": ["This one of the examples of condition, ideally we want to have all conditions which are relevant for the encounter/surgery of the patient, for the status and codes please check https://hl7.org/fhir/2018May/condition.html"],
+    "resourceType": "Condition",
+    "clinicalStatus": "active",
+    "verificationStatus": "confirmed",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "HixDiagnoseRelatieType",
+                    "display": "KNO Complicaties",
+                    "code": "10"
+                }
+            ]
+        },
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "116223007",
+                    "display": "Complication"
+                }
+            ]
+        }
+    ],
+    "severity": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "255604002",
+                "display": "Mild"
+            }
+        ]
+    },
+    "code": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/icd-10-nl",
+                "code": "H26.9",
+                "display": "Cataract, niet gespecificeerd"
+            }
+        ]
+    },
+    "bodySite": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "5597008",
+            "display": "Retina of right eye"
+          }
+        ]
+    },
+    "subject": {
+      "reference": "Patient/5a7dc54cf2f5f10100361927"
+    },
+   "context": {
+     "reference": "Encounter/123XYZ"
+   }
+}
