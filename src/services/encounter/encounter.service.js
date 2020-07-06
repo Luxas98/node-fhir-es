@@ -72,11 +72,11 @@ module.exports.everything = (args) => new Promise((resolve, reject) => {
 						}
 						if (resource.constructor === Array) {
 							resource.forEach((subresource) => {
-								resultResources.push({resource: subresource});
+								resultResources.push(subresource);
 							});
 						} else {
 							// TODO: add fullUrl to the properties -> meta data needed
-							resultResources.push({resource: resource});
+							resultResources.push(resource);
 						}
 					});
 					let resultBundle = new Bundle({total: resultResources.length, type: 'searchset', entry: resultResources});

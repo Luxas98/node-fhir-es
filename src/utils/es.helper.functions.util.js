@@ -167,6 +167,8 @@ let searchId = (id, indexName, ResourceClass, resolve, reject, resourceName) => 
 
 let create = (resource, indexName, ResourceClass, MetaClass, resolve, reject) => {
 	// Cast resource to Encounter Class
+	logger.info(`${indexName} create resource >>> ${JSON.stringify(resource)}`);
+
 	let _resource = new ResourceClass(resource);
 	_resource.meta = new MetaClass({
 		'lastUpdated': moment.utc().format('YYYY-MM-DDTHH:mm:ssZ'),
@@ -174,7 +176,7 @@ let create = (resource, indexName, ResourceClass, MetaClass, resolve, reject) =>
 	});
 
 	let str_resource = JSON.stringify(_resource);
-	logger.info(`${indexName} creating >>> ${str_resource}`);
+	logger.info(`${indexName} create ResourceClass >>> ${str_resource}`);
 
 	// Index resource
 	esClient.index({
@@ -182,7 +184,7 @@ let create = (resource, indexName, ResourceClass, MetaClass, resolve, reject) =>
 		body: _resource,
 		id: _resource.id
 	}).then((response) => {
-		logger.info(`${indexName} create >>> ${response}`);
+		logger.info(`${indexName} create >>> ${JSON.stringify(response)}`);
 		return response;
 	}).then((response) => {
 		esClient.index({
